@@ -39,8 +39,8 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
   SDL_FreeSurface(pTempSurface);
 
   SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);//원본상자 너비, 넓이 설정
-  m_sourceRectangle.x = 0;
-  m_sourceRectangle.y = 0;
+  m_sourceRectangle.x = 50;
+  m_sourceRectangle.y = 50;
 
   m_sourceRectangle.w = 50;
   m_sourceRectangle.h = 50;
