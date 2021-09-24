@@ -32,13 +32,16 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
   m_bRunning = true;
 
   //texture 생성
-  SDL_Surface* pTempSurface = SDL_LoadBMP("Assets/rider.bmp");
+  SDL_Surface* pTempSurface = SDL_LoadBMP("Assets/animate.bmp");
 
   m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
   
   SDL_FreeSurface(pTempSurface);
 
-  SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);//원본상자 너비, 넓이 설정
+  //SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);//원본상자 너비, 넓이 설정
+  m_sourceRectangle.w = 128;
+  m_sourceRectangle.h = 82;
+
   m_sourceRectangle.x = 0;
   m_sourceRectangle.y = 0;
 
@@ -59,7 +62,7 @@ void Game::render()
 {
   SDL_RenderClear(m_pRenderer);
   
-  SDL_RenderCopy(m_pRenderer, m_pTexture, NULL, NULL);//원본상자/대상상자의 크기대신 NULL을 입력할경우 화면에 꽉차게 나오게 된다
+  SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);//원본상자/대상상자의 크기대신 NULL을 입력할경우 화면에 꽉차게 나오게 된다
 
   SDL_RenderPresent(m_pRenderer);
 }
