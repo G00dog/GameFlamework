@@ -13,7 +13,7 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
 
       if(m_pRenderer != 0)
       {
-        SDL_SetRenderDrawColor(m_pRenderer, 0, 255, 0, 255);
+        SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
       }
       else
       {
@@ -33,15 +33,15 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
   m_bRunning = true;
 
   //texture 생성
-  SDL_Surface* pTempSurface = IMG_Load("Assets/animate-alpha.png");
+  SDL_Surface* pTempSurface = IMG_Load("Assets/pepedancing.png");
 
   m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
   
   SDL_FreeSurface(pTempSurface);
 
   //SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);//원본상자 너비, 넓이 설정
-  m_sourceRectangle.w = 128;
-  m_sourceRectangle.h = 82;
+  m_sourceRectangle.w = 420;
+  m_sourceRectangle.h = 244;
 
   m_sourceRectangle.x = 0;
   m_sourceRectangle.y = 0;
@@ -49,7 +49,7 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
   m_destinationRectangle.w = m_sourceRectangle.w;
   m_destinationRectangle.h = m_sourceRectangle.h;
 
-  m_destinationRectangle.x = 0;
+  m_destinationRectangle.x = 100;
   m_destinationRectangle.y = 0;
 
   return true;
@@ -57,7 +57,7 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
 
 void Game::update()
 {
-  m_sourceRectangle.x = 128*((SDL_GetTicks() / 100) % 6);
+  m_sourceRectangle.x = 420*((SDL_GetTicks() / 50) % 10);
 }
 
 void Game::render()
