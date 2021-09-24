@@ -48,8 +48,8 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
   m_destinationRectangle.w = m_sourceRectangle.w;
   m_destinationRectangle.h = m_sourceRectangle.h;
 
-  m_destinationRectangle.x = 0;
-  m_destinationRectangle.y = 0;
+  m_destinationRectangle.x = 50;
+  m_destinationRectangle.y = 50;
 
   return true;
 }
