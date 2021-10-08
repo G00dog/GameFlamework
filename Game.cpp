@@ -14,7 +14,7 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
 
       if(m_pRenderer != 0)
       {
-        SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
       }
       else
       {
@@ -69,7 +69,7 @@ void Game::update()
 
 void Game::render()
 {
-  //SDL_RenderClear(m_pRenderer);
+  SDL_RenderClear(m_pRenderer);
   
   //SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);//원본상자/ 대상상자의 크기대신 NULL을 입력할경우 화면에 꽉차게 나오게 된다
 
