@@ -35,11 +35,7 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
 
   //texture 생성
   //SDL_Surface* pTempSurface = IMG_Load("Assets/pepedancing.png");
-  //m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
-  if(!TheTextureManager::Instance()->load("Assets/animate-alpha.png","animate",m_pRenderer))
-  {
-    return false;
-  }
+  m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
 
   //m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
   
@@ -73,11 +69,9 @@ void Game::render()
   
   //SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);//원본상자/ 대상상자의 크기대신 NULL을 입력할경우 화면에 꽉차게 나오게 된다
 
-  //m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
-  //m_textureManager.drawFrame("animate", 100, 100, 128, 82, 0, m_currentFrame, m_pRenderer);
-  TheTextureManager::Instance()->draw("animate",0,0,128,82,m_pRenderer);
-  TheTextureManager::Instance()->drawFrame("animate",100,100,128,82,0,m_currentFrame,m_pRenderer);
-
+  m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
+  m_textureManager.drawFrame("animate", 100, 100, 128, 82, 0, m_currentFrame, m_pRenderer);
+  
   SDL_RenderPresent(m_pRenderer);
 }
 
