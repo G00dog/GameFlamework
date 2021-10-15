@@ -40,8 +40,13 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
     return false;
   }
 
-  m_go.load(100, 100, 128, 82, "animate");
-  m_player.load(300, 300, 128, 82, "animate");
+  GameObject* m_go = new GameObject();
+  GameObject* m_player = new Player();
+
+  m_go->load(100,100,128,82,"animate");
+  m_player->load(300,300,128,82,"animate");
+  m_gameObjects.push_back(m_go);
+  m_gameObjects.push_back(m_player);
 
   return true;
 }
@@ -49,16 +54,22 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
 void Game::update()
 {
   //m_currentFrame = ((SDL_GetTicks() / 100) % 6);
-  m_go.update();
-  m_player.update();
+  //m_go.update();
+  //m_player.update();
+   for(int i = 0; i<m_gameObjects.size(); i++)
+  {
+    m_gameObjects[i]->update();
+  }
 }
 
 void Game::render()
 {
   SDL_RenderClear(m_pRenderer);
   
-  m_go.draw(m_pRenderer);
-  m_player.draw(m_pRenderer);
+  for(int i = 0; i<m_gameObjects.size(); i++)
+  {
+    m_gameObjects[i]->draw(m_pRenderer);
+  }
 
   SDL_RenderPresent(m_pRenderer);
 }
