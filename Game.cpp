@@ -48,15 +48,17 @@ bool Game::init(const char* title, int xpos, int ypos, int height, int width, in
 
 void Game::update()
 {
-  m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+  //m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+  m_go.update();
+  m_player.update();
 }
 
 void Game::render()
 {
   SDL_RenderClear(m_pRenderer);
   
-  TheTextureManager::Instance()->draw("animate",0,0,128,82,m_pRenderer);
-  TheTextureManager::Instance()->drawFrame("animate",100,100,128,82,0,m_currentFrame,m_pRenderer);
+  m_go.draw(m_pRenderer);
+  m_player.draw(m_pRenderer);
 
   SDL_RenderPresent(m_pRenderer);
 }
