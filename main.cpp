@@ -1,5 +1,4 @@
-//완료된 실습
-//상속, 다향성
+//
 
 #include "Game.h"
 Game* g_game = 0;

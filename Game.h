@@ -5,7 +5,6 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Player.h"
-#include <vector>
 
 class Game{
 public:
@@ -20,7 +19,6 @@ public:
   void clean();
 
 private:
-  std::vector<GameObject*> m_gameObjects;
   SDL_Window* m_pWindow;
   SDL_Renderer* m_pRenderer;
   SDL_Texture* m_pTexture;
@@ -29,8 +27,8 @@ private:
   
   bool m_bRunning;
 
-  //GameObject m_go;
-  //Player m_player;
+  GameObject m_go;
+  Player m_player;
 };
 
 #endif
