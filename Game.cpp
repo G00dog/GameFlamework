@@ -4,6 +4,8 @@
 #include "GameObject.h"
 #include "Player.h"
 
+Game* Game::s_pInstance = 0;
+
 bool Game::init(const char* title, int xpos, int ypos, int height, int width, int flags)
 {
   if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
