@@ -20,7 +20,7 @@ public:
   }
   SDL_Renderer* getRenderer() const {return m_pRenderer;}
 
-  bool init(const char* title, int xpos, int ypos, int height, int width, int flags);
+  bool init(const char* title, int xpos, int ypos, int width, int height, int flags);
   void render();
   void update();
   bool running();
