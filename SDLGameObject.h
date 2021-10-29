@@ -15,9 +15,6 @@ public:
 protected:
   Vector2D m_position;
 
-  int m_x;//오류떠서 추가해놓음 지워야함
-  int m_y;//위와 같음
-
   int m_width;
   int m_height;
   int m_currentRow;
