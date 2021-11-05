@@ -2,6 +2,7 @@
 //상속, 다향성, 유일객체 Game, 추상 Class, Vector2D, 물리
 
 #include "Game.h"
+#include "InputHandler.h"
 #include <iostream>
 
 Game* g_game = 0;
@@ -32,5 +33,6 @@ int main(int argc, char* argv[])
     return -1;
   }
   TheGame::Instance()->clean();
+  TheInputHandler::Instance()->clean();
   return 0;
 }

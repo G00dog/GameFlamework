@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "SDLGameObject.h"
 #include "Enemy.h"
+#include "InputHandler.h"
 
 Game* Game::s_pInstance = 0;
 
@@ -52,9 +53,6 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 
 void Game::update()
 {
-  //m_currentFrame = ((SDL_GetTicks() / 100) % 6);
-  //m_go.update();
-  //m_player.update();
    for(int i = 0; i<m_gameObjects.size(); i++)
   {
     m_gameObjects[i]->update();
@@ -80,18 +78,7 @@ bool Game::running()
 
 void Game::handleEvents()
 {
-  SDL_Event event;
-  if (SDL_PollEvent(&event))
-  {
-    switch (event.type)
-    {
-      case SDL_QUIT:
-        m_bRunning = false;
-        break;
-      defaault:
-        break;
-    }
-  }
+  TheInputHandler::Instance()->update();
 }
 
 void Game::clean()
