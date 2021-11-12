@@ -1,5 +1,5 @@
 //완료된 실습
-//상속, 다향성, 유일객체 Game, 추상 Class, Vector2D, 물리, 키 입력
+//상속, 다향성, 유일객체 Game, 추상 Class, Vector2D, 물리, 키 입력, 마우스 입력
 
 #include "Game.h"
 #include "InputHandler.h"
